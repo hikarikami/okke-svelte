@@ -159,7 +159,7 @@
 				<h3 class="text-lg">Monthly Tray</h3>
 				<Popover.Root>
 				<Popover.Trigger>
-					<Button variant="ghost" size="icon" class="absolute -top-1.5 -right-1.5"><Settings class="w-4 h-4"/></Popover.Trigger> </Button></Popover.Trigger>
+					<Button variant="ghost" size="icon" class="absolute -top-1.5 -right-1.5"><Settings class="w-4 h-4"/></Button></Popover.Trigger>
 						<Popover.Content>
 							<legend class="text-slate-800 text-sm">Show alerts for:</legend>
 							<div class="flex flex-col mt-2 gap-2 divide-y border-b padding-b-2">
