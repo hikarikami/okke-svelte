@@ -157,7 +157,7 @@
 		<div class="card">
 			<div class="card--header relative">
 				<h3 class="text-lg">Monthly Tray</h3>
-				<Button variant="ghost" size="icon" class="absolute right-4 -top-1.5 -right-1.5">
+				<Button variant="ghost" size="icon" class="absolute -top-1.5 -right-1.5">
 					<Popover.Root>
 						<Popover.Trigger><Settings class="w-4 h-4"/></Popover.Trigger>
 						<Popover.Content>
