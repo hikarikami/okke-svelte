@@ -156,22 +156,8 @@
 		<!-- Monthly Tasks  -->
 		<div class="card">
 			<div class="card--header relative">
-				<!-- <h3 class="text-lg">Monthly Tray</h3>
-				<Popover.Root>
-				<Popover.Trigger>
-					<Button variant="ghost" size="icon" class="absolute -top-1.5 -right-1.5"><Settings class="w-4 h-4"/></Button></Popover.Trigger>
-						<Popover.Content>
-							<legend class="text-slate-800 text-sm">Show alerts for:</legend>
-							<div class="flex flex-col mt-2 gap-2 divide-y border-b padding-b-2">
-								<Label class="w-full flex flex-row justify-between items-center ">Income transactions <Switch /></Label>
-								<Label class="w-full flex flex-row justify-between items-center pt-2">Expense transactions <Switch /></Label>
-								<Label class="w-full flex flex-row justify-between items-center pt-2">Receipt uploads <Switch /></Label>
-								<Label class="w-full flex flex-row justify-between items-center pt-2">User invites <Switch /></Label>
-								<Label class="w-full flex flex-row justify-between items-center py-2">BAS & Tax notifications <Switch /></Label>
-							</div>
-							<Button variant='secondary' size='default' class="w-fit mt-4">Hide widget</Button>
-						</Popover.Content>
-					  </Popover.Root> -->
+			 <h3 class="text-lg">Monthly Tray</h3> 
+				
 				
 			</div>
 			<div class="card--content">
