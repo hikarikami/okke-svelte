@@ -5,12 +5,11 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Badge } from '$lib/components/ui/badge';
 	import * as Select from '$lib/components/ui/select';
-	import { Switch } from "$lib/components/ui/switch";
-	import { Label } from "$lib/components/ui/label/index.js";
+	import { Switch } from '$lib/components/ui/switch';
+	import { Label } from '$lib/components/ui/label/index.js';
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { Progress } from '$lib/components/ui/progress';
-	import * as Popover from "$lib/components/ui/popover";
-
+	import * as Popover from '$lib/components/ui/popover';
 
 	import Chart from 'chart.js/auto';
 	import CashflowChart from '$lib/app/charts/cashflow.svelte';
@@ -156,27 +155,59 @@
 		<!-- Monthly Tasks  -->
 		<div class="card">
 			<div class="card--header relative">
-			 <h3 class="text-lg">Monthly Tray</h3> 
-				
-				
+				<h3 class="text-lg">Monthly Tray</h3>
+				<Popover.Root>
+					<Popover.Trigger asChild let:builder>
+						<Button builders={[builder]} variant="ghost" size="icon" class="absolute -right-1.5 -top-1.5"
+							><Settings class="h-4 w-4" /></Button
+						>
+					</Popover.Trigger>
+					<Popover.Content>
+						<legend class="text-sm text-slate-800">Show alerts for:</legend>
+						<div class="padding-b-2 mt-2 flex flex-col gap-2 divide-y border-b">
+							<Label class="flex w-full flex-row items-center justify-between "
+								>Income transactions <Switch /></Label
+							>
+							<Label class="flex w-full flex-row items-center justify-between pt-2"
+								>Expense transactions <Switch /></Label
+							>
+							<Label class="flex w-full flex-row items-center justify-between pt-2"
+								>Receipt uploads <Switch /></Label
+							>
+							<Label class="flex w-full flex-row items-center justify-between pt-2"
+								>User invites <Switch /></Label
+							>
+							<Label class="flex w-full flex-row items-center justify-between py-2"
+								>BAS & Tax notifications <Switch /></Label
+							>
+						</div>
+						<Button variant="secondary" size="default" class="mt-4 w-fit">Hide widget</Button>
+					</Popover.Content>
+				</Popover.Root>
 			</div>
 			<div class="card--content">
 				<div class="mt-4 grid grid-cols-1 gap-y-4">
 					<div class="rounded-md bg-indigo-50/50 p-4">
 						<div class="flex flex-row items-center justify-between">
-							<div class="flex flex-row gap-x-2 leading-none"><ReceiptText class="w-4 h-4 text-indigo-500" /> 3 new receipts uploaded.</div>
+							<div class="flex flex-row gap-x-2 leading-none">
+								<ReceiptText class="h-4 w-4 text-indigo-500" /> 3 new receipts uploaded.
+							</div>
 							<Button variant="outline" size="sm">View</Button>
 						</div>
 					</div>
-					<div class="p-4 bg-indigo-50/50 rounded-md">
+					<div class="rounded-md bg-indigo-50/50 p-4">
 						<div class="flex flex-row items-center justify-between">
-							<div class="flex flex-row gap-x-2 leading-none"><TrendingUp class="w-4 h-4 text-emerald-500" /> 5 new income transactions.</div>
+							<div class="flex flex-row gap-x-2 leading-none">
+								<TrendingUp class="h-4 w-4 text-emerald-500" /> 5 new income transactions.
+							</div>
 							<Button variant="outline" size="sm">Categorise</Button>
 						</div>
 					</div>
-					<div class="p-4 bg-indigo-50/50 rounded-md">
+					<div class="rounded-md bg-indigo-50/50 p-4">
 						<div class="flex flex-row items-center justify-between">
-							<div class="flex flex-row gap-x-2 leading-none"><TrendingDown class="w-4 h-4 text-red-500"/> 5 new expenses.</div>
+							<div class="flex flex-row gap-x-2 leading-none">
+								<TrendingDown class="h-4 w-4 text-red-500" /> 5 new expenses.
+							</div>
 							<Button variant="outline" size="sm">Categorise</Button>
 						</div>
 					</div>
