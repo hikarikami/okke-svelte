@@ -157,9 +157,9 @@
 		<div class="card">
 			<div class="card--header relative">
 				<h3 class="text-lg">Monthly Tray</h3>
-				<Button variant="ghost" size="icon" class="absolute -top-1.5 -right-1.5">
-					<Popover.Root>
-						<Popover.Trigger><Settings class="w-4 h-4"/></Popover.Trigger>
+				<Popover.Root>
+				<Popover.Trigger>
+					<Button variant="ghost" size="icon" class="absolute -top-1.5 -right-1.5"><Settings class="w-4 h-4"/></Popover.Trigger> </Button></Popover.Trigger>
 						<Popover.Content>
 							<legend class="text-slate-800 text-sm">Show alerts for:</legend>
 							<div class="flex flex-col mt-2 gap-2 divide-y border-b padding-b-2">
@@ -172,7 +172,7 @@
 							<Button variant='secondary' size='default' class="w-fit mt-4">Hide widget</Button>
 						</Popover.Content>
 					  </Popover.Root>
-				</Button>
+				
 			</div>
 			<div class="card--content">
 				<div class="mt-4 grid grid-cols-1 gap-y-4">
