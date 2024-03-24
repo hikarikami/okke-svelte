@@ -5,10 +5,15 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Badge } from '$lib/components/ui/badge';
 	import * as Select from '$lib/components/ui/select';
+	import { Switch } from "$lib/components/ui/switch";
+	import { Label } from "$lib/components/ui/label/index.js";
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { Progress } from '$lib/components/ui/progress';
+	import * as Popover from "$lib/components/ui/popover";
+
 
 	import Chart from 'chart.js/auto';
+	import CashflowChart from '$lib/app/charts/cashflow.svelte';
 
 	import { onMount } from 'svelte';
 
@@ -17,10 +22,15 @@
 	// Icons
 	import Eye from 'lucide-svelte/icons/eye';
 	import Pencil from 'lucide-svelte/icons/pencil';
+	import { ReceiptText } from 'lucide-svelte';
 	import RefreshCcw from 'lucide-svelte/icons/refresh-ccw';
+	import { TrendingUp } from 'lucide-svelte';
+	import { TrendingDown } from 'lucide-svelte';
+	import { Files } from 'lucide-svelte';
+	import { Settings } from 'lucide-svelte';
 
 	// default date range
-	let selected = { value: '1', label: 'This month' };
+	let selected = { value: '1', label: 'Past 12 months' };
 
 	let income;
 	const data = {
@@ -28,13 +38,13 @@
 		datasets: [
 			{
 				label: 'Expenses',
-				data: [327.5, 105.21, 101, 99.7, 645.0, 134],
+				data: [327.5, 205.21, 151, 221, 445.0, 134],
 				backgroundColor: [
 					'#e60049',
+					'#dc0ab4',
 					'#0bb4ff',
+					'#1e1b4b',
 					'#50e991',
-					'#e6d800',
-					'#9b19f5',
 					'#ffa300',
 					'#dc0ab4',
 					'#b3d4ff'
@@ -51,7 +61,7 @@
 			borderRadius: '0',
 			responsive: true,
 			cutout: '65%',
-			spacing: 0,
+			spacing: 4,
 			plugins: {
 				legend: {
 					position: 'right',
@@ -99,41 +109,99 @@
 				<div class="flex flex-row gap-x-16">
 					<div>
 						<div>Income This Month</div>
-						<div class="text-2xl font-medium"><span class="text-base text-white/75">$</span>1,340.28</div>
+						<div class="text-2xl font-medium">
+							<span class="text-base text-white/75">$</span>1,340.28
+						</div>
 					</div>
 					<div>
 						<div>Income Forecast</div>
-						<div class="mt-2 relative">
+						<div class="relative mt-2">
 							<div class="h-4 w-80 rounded-full bg-black/35"></div>
-							<p class="text-white text-sm font-light mt-1 absolute right-28 text-center"><br>paid</p>
-							<div class="h-4 w-48 rounded-full bg-emerald-400 absolute top-0"></div>
-							<p class="text-white text-sm font-light mt-1 absolute right-0 text-center">$2,402.40<br>expected</p>
+							<p class="absolute right-28 mt-1 text-center text-sm font-light text-white">
+								<br />paid
+							</p>
+							<div class="absolute top-0 h-4 w-48 rounded-full bg-emerald-400"></div>
+							<p class="absolute right-0 mt-1 text-center text-sm font-light text-white">
+								$2,402.40<br />expected
+							</p>
 						</div>
-						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<div class="mt-6 grid grid-cols-2 grid-rows-1 gap-x-6 gap-y-8">
-		<!-- Document Tray -->
-		<div class="card">
-			<div class="card--header">
-				<h3 class="text-lg">Document Tray</h3>
+
+	<div class="mt-6 grid grid-cols-3 grid-rows-1 gap-x-6 gap-y-8">
+		<!-- Cashflow Widget -->
+		<div class="card col-span-2">
+			<div class="card--header flex w-full flex-row">
+				<h3 class="text-lg">Cashflow</h3>
+				<Select.Root bind:selected>
+					<Select.Trigger class="-mt-2 ml-auto w-[180px]">
+						<Select.Value placeholder="Select range" />
+					</Select.Trigger>
+					<Select.Content>
+						<Select.Item value="1">Past 12 Months</Select.Item>
+						<Select.Item value="3">This Financial Year</Select.Item>
+					</Select.Content>
+				</Select.Root>
 			</div>
 			<div class="card--content">
-				<div class="flex flex-row items-center justify-between">
-					<div class="">7 new documents waiting</div>
-					<Button variant="outline" size="icon"><Eye /></Button>
+				<CashflowChart />
+			</div>
+			<div class="card--footer"></div>
+		</div>
+		<!-- End cashflow Widget -->
+
+		<!-- Monthly Tasks  -->
+		<div class="card">
+			<div class="card--header relative">
+				<h3 class="text-lg">Monthly Tray</h3>
+				<Button variant="ghost" size="icon" class="absolute right-4 -top-1.5 -right-1.5">
+					<Popover.Root>
+						<Popover.Trigger><Settings class="w-4 h-4"/></Popover.Trigger>
+						<Popover.Content>
+							<legend class="text-slate-800 text-sm">Show alerts for:</legend>
+							<div class="flex flex-col mt-2 gap-2 divide-y border-b padding-b-2">
+								<Label class="w-full flex flex-row justify-between items-center ">Income transactions <Switch /></Label>
+								<Label class="w-full flex flex-row justify-between items-center pt-2">Expense transactions <Switch /></Label>
+								<Label class="w-full flex flex-row justify-between items-center pt-2">Receipt uploads <Switch /></Label>
+								<Label class="w-full flex flex-row justify-between items-center pt-2">User invites <Switch /></Label>
+								<Label class="w-full flex flex-row justify-between items-center py-2">BAS & Tax notifications <Switch /></Label>
+							</div>
+							<Button variant='secondary' size='default' class="w-fit mt-4">Hide widget</Button>
+						</Popover.Content>
+					  </Popover.Root>
+				</Button>
+			</div>
+			<div class="card--content">
+				<div class="mt-4 grid grid-cols-1 gap-y-4">
+					<div class="rounded-md bg-indigo-50/50 p-4">
+						<div class="flex flex-row items-center justify-between">
+							<div class="flex flex-row gap-x-2 leading-none"><ReceiptText class="w-4 h-4 text-indigo-500" /> 3 new receipts uploaded.</div>
+							<Button variant="outline" size="sm">View</Button>
+						</div>
+					</div>
+					<div class="p-4 bg-indigo-50/50 rounded-md">
+						<div class="flex flex-row items-center justify-between">
+							<div class="flex flex-row gap-x-2 leading-none"><TrendingUp class="w-4 h-4 text-emerald-500" /> 5 new income transactions.</div>
+							<Button variant="outline" size="sm">Categorise</Button>
+						</div>
+					</div>
+					<div class="p-4 bg-indigo-50/50 rounded-md">
+						<div class="flex flex-row items-center justify-between">
+							<div class="flex flex-row gap-x-2 leading-none"><TrendingDown class="w-4 h-4 text-red-500"/> 5 new expenses.</div>
+							<Button variant="outline" size="sm">Categorise</Button>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="card--footer"></div>
 		</div>
-
+		<!-- End Document Tray -->
 
 		<!-- Transactions-->
-		<div class="card">
+		<div class="card col-span-2">
 			<div class="card--header flex items-center">
 				<h3 class="text-lg">27 New Transactions</h3>
 				<Button
@@ -223,23 +291,11 @@
 				<Button size="default">View All</Button>
 			</div>
 		</div>
-	</div>
-
-	<div class="grid grid-cols-3 gap-x-6 mt-6">
-		<!-- Income Widget -->
+		<!-- End Transaction Widget-->
+		<!-- Expense Widget -->
 		<div class="card">
 			<div class="card--header flex w-full flex-row">
 				<h3 class="text-lg">Expenses</h3>
-				<Select.Root bind:selected>
-					<Select.Trigger class="-mt-2 ml-auto w-[180px]">
-						<Select.Value placeholder="Selected Business" />
-					</Select.Trigger>
-					<Select.Content>
-						<Select.Item value="1">This Month</Select.Item>
-						<Select.Item value="2">Past 12 Months</Select.Item>
-						<Select.Item value="3">This Financial Year</Select.Item>
-					</Select.Content>
-				</Select.Root>
 			</div>
 
 			<div class="card--content">
@@ -247,62 +303,11 @@
 					<div class="text-sm font-normal text-slate-800">Expense This Month:</div>
 					<div class="text-3xl font-medium"><span class="">$</span>894.00</div>
 				</div>
-				<div class="w-6/12 -my-8"><canvas bind:this={income} width={200} height={200} /></div>
+				<div class="w-10/12"><canvas bind:this={income} width={200} height={200} /></div>
 			</div>
 			<div class="card--footer"></div>
 		</div>
-
-		<!-- Income Widget -->
-		<div class="card">
-			<div class="card--header flex w-full flex-row">
-				<h3 class="text-lg">Expenses</h3>
-				<Select.Root bind:selected>
-					<Select.Trigger class="-mt-2 ml-auto w-[180px]">
-						<Select.Value placeholder="Selected Business" />
-					</Select.Trigger>
-					<Select.Content>
-						<Select.Item value="1">This Month</Select.Item>
-						<Select.Item value="2">Past 12 Months</Select.Item>
-						<Select.Item value="3">This Financial Year</Select.Item>
-					</Select.Content>
-				</Select.Root>
-			</div>
-
-			<div class="card--content">
-				<div class="gap-y-.5 mt-2 flex flex-col">
-					<div class="text-sm font-normal text-slate-800">Expense This Month:</div>
-					<div class="text-3xl font-medium"><span class="">$</span>894.00</div>
-				</div>
-				<div class="w-6/12 -my-8"><canvas bind:this={income} width={200} height={200} /></div>
-			</div>
-			<div class="card--footer"></div>
-		</div>
-
-		<!-- Income Widget -->
-		<div class="card">
-			<div class="card--header flex w-full flex-row">
-				<h3 class="text-lg">Expenses</h3>
-				<Select.Root bind:selected>
-					<Select.Trigger class="-mt-2 ml-auto w-[180px]">
-						<Select.Value placeholder="Selected Business" />
-					</Select.Trigger>
-					<Select.Content>
-						<Select.Item value="1">This Month</Select.Item>
-						<Select.Item value="2">Past 12 Months</Select.Item>
-						<Select.Item value="3">This Financial Year</Select.Item>
-					</Select.Content>
-				</Select.Root>
-			</div>
-
-			<div class="card--content">
-				<div class="gap-y-.5 mt-2 flex flex-col">
-					<div class="text-sm font-normal text-slate-800">Expense This Month:</div>
-					<div class="text-3xl font-medium"><span class="">$</span>894.00</div>
-				</div>
-				<div class="w-10/12 -my-8"><canvas bind:this={income} width={200} height={200} /></div>
-			</div>
-			<div class="card--footer"></div>
-		</div>
+		<!-- End Expense Widget -->
 	</div>
 </div>
 

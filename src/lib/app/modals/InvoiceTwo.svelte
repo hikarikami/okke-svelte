@@ -1,116 +1,75 @@
 <script lang="ts">
 	import * as Dialog from '$lib/components/ui/dialog';
+	import { Input } from '$lib/components/ui/input/index.js';
+	import { Label } from '$lib/components/ui/label/index.js';
+	import { Textarea } from '$lib/components/ui/textarea/index.js';
+	import { Switch } from '$lib/components/ui/switch/index.js';
+	import Button from '$lib/components/ui/button/button.svelte';
+	
+	let checked = false;
 </script>
 
 <Dialog.Header>
-	<Dialog.Title>Example Modal 2</Dialog.Title>
+	<Dialog.Title>Setting Up Your Invoices</Dialog.Title>
 </Dialog.Header>
 <Dialog.Description>
-	<fieldset>
-		<div class="mt-4 grid grid-cols-3 gap-4">
-			<label for="Modern"
-       class="layout-style group">
-				Classic
-				<input
-					name="invoice_type"
-					id="Modern"
-					value="Modern"
-					type="radio"
-					class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
-					checked
-				/>
-        <div class="preview bg-indigo-50 group-hover:scale-90 peer-checked:scale-[1.7] relative -z-10"></div>
-			</label>
-			<label
-				for="Classic"
-        class="layout-style group"
-			
-			>
-				Modern
-
-				<input
-					name="invoice_type"
-					id="Classic"
-					value="Classic"
-					type="radio"
-					class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
-				/>
-       <div class="preview bg-indigo-50 group-hover:scale-90 peer-checked:scale-[1.7] relative -z-10"></div>
-			</label>
-			<label
-				for="Fun"
-        class="layout-style group"
-			>
-				Fun
-
-				<input
-					name="invoice_type"
-					id="Fun"
-					value="Fun"
-					type="radio"
-					class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
-				/>
-       <div class="preview bg-indigo-50 group-hover:scale-90 peer-checked:scale-[1.7] relative -z-10"></div>
-			</label>
-
-			<label
-				for="Other1"
-				class="layout-style group"
-			>
-				Other
-				<input
-					name="invoice_type"
-					id="Other1"
-					value="Fun"
-					type="radio"
-					class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
-				/>
-       <div class="preview bg-indigo-50 group-hover:scale-90 peer-checked:scale-[1.7] relative -z-10"></div>
-			</label>
-
-			<label
-				for="Other2"
-				class="layout-style group"
-			>
-				Other
-       
-				<input
-					name="invoice_type"
-					id="Other2"
-					value="Fun"
-					type="radio"
-					class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
-				/>
-       <div class="preview bg-indigo-50 group-hover:scale-90 peer-checked:scale-[1.7] relative -z-10"></div>
-			</label>
-
-      <label
-				for="Other3"
-				class="layout-style gap-y-24 group"
-			>
-			Last One
-       
-				<input
-					name="invoice_type"
-					id="Other3"
-					value="Fun"
-					type="radio"
-					class="peer peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-full border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
-				/>
-        <div class="preview bg-indigo-50 group-hover:scale-90 peer-checked:scale-[1.7] relative -z-10"></div>
-			</label>
+	<div class="grid-row-12 grid grid-cols-12 gap-x-16">
+		<div class="col-span-6">
+			<p>Let's get started by customising the look and feel of your invoices.</p>
+			<div class="mt-6 flex flex-col gap-y-4">
+				<div class="rounded-lg border p-4">
+					<div class="flex flex-row items-end items-center gap-x-4">
+						<div
+							class="h-16 w-16 rounded-lg border border-dashed border-slate-300 bg-slate-100"
+						></div>
+						<div>
+							<Label for="email">Upload your logo Email</Label>
+							<p>Logos get you money or something.</p>
+						</div>
+						<Button size="sm" variant="secondary" class="ml-auto">Upload</Button>
+					</div>
+				</div>
+				<div class="rounded-lg border p-4">
+					<div class="flex flex-row items-center justify-between gap-x-4">
+						<div>
+							<Label for="email">Business Email</Label>
+							<p>Show your business email address on invoices for easier contact.</p>
+						</div>
+						<Switch id="airplane-mode" />
+					</div>
+				</div>
+				<div class="rounded-lg border p-4">
+					<div class="flex flex-row items-center justify-between gap-x-4">
+						<div>
+							<Label for="email">Business Contact Number</Label>
+							<p>Show your business email address on invoices for easier contact.</p>
+						</div>
+						<Switch id="airplane-mode" />
+					</div>
+				</div>
+				<div class="rounded-lg border p-4">
+					<div>
+						<div class="flex flex-row items-center justify-between gap-x-4">
+							<div>
+								<Label for="email">Payment Details</Label>
+								<p>Show your business email address on invoices for easier contact.</p>
+							</div>
+							<Switch id="payment-detail" bind:checked/>
+						</div>
+						<div class="mt-4 grid w-full gap-1.5">
+							{#if checked}
+							<Textarea rows=6 placeholder="Enter your remittance advice" id="message" />
+							{/if}
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</fieldset>
+		<div
+			class="relative col-span-6 flex h-full w-full items-end justify-center overflow-hidden rounded border bg-slate-100 p-16 pb-0 md:min-h-[50dvh]"
+		>
+			<div class="h-full w-full bg-white shadow-lg"></div>
+		</div>
+	</div>
 </Dialog.Description>
 <Dialog.Footer></Dialog.Footer>
-
-<style>
-	.layout-style {
-		@apply  relative border items-center gap-6 rounded-lg p-4 min-h-40 overflow-hidden text-lg text-slate-700 ring-1 ring-transparent hover:border-slate-300 hover:cursor-pointer has-[:checked]:bg-indigo-50/20 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-300;
-	}
-
-
-  .layout-style .preview {
-    @apply w-full h-40 mt-2  rounded-md transition-transform  duration-300 bg-indigo-50;
-  }
-</style>
