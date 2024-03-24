@@ -156,7 +156,7 @@
 		<!-- Monthly Tasks  -->
 		<div class="card">
 			<div class="card--header relative">
-				<h3 class="text-lg">Monthly Tray</h3>
+				<!-- <h3 class="text-lg">Monthly Tray</h3>
 				<Popover.Root>
 				<Popover.Trigger>
 					<Button variant="ghost" size="icon" class="absolute -top-1.5 -right-1.5"><Settings class="w-4 h-4"/></Button></Popover.Trigger>
@@ -171,7 +171,7 @@
 							</div>
 							<Button variant='secondary' size='default' class="w-fit mt-4">Hide widget</Button>
 						</Popover.Content>
-					  </Popover.Root>
+					  </Popover.Root> -->
 				
 			</div>
 			<div class="card--content">
