@@ -60,25 +60,26 @@
 		title="Invoices"
 		buttons={[{ label: 'Create New Invoice', href: '#', variant: 'default', showIcon: true }]}
 	/>
-</div>
-<div>
-	<Dialog.Root bind:open={dialogOpen}>
-		<Dialog.Trigger>Open</Dialog.Trigger>
-		<Dialog.Content class="w-[90vw]">
-			{#if $currentStep === 1}
-				<StepOne {goToNextStep} {goToPreviousStep} />
-			{:else if $currentStep === 2}
-				<StepTwo {goToNextStep} {goToPreviousStep} />
-			{/if}
-
-			<Dialog.Footer>
+	<div class="mt-4">
+		<Dialog.Root bind:open={dialogOpen}>
+			<Dialog.Trigger><Button>Configure Invoice Wizard</Button></Dialog.Trigger>
+			<Dialog.Content class="w-[90vw]">
 				{#if $currentStep === 1}
-					<Button on:click={goToNextStep}>Continue</Button>
-				{:else}
-					<Button variant="secondary" on:click={goToPreviousStep}>Go Back</Button>
-					<Button on:click={goToNextStep}>Continue</Button>
+					<StepOne {goToNextStep} {goToPreviousStep} />
+				{:else if $currentStep === 2}
+					<StepTwo {goToNextStep} {goToPreviousStep} />
 				{/if}
-			</Dialog.Footer>
-		</Dialog.Content>
-	</Dialog.Root>
+	
+				<Dialog.Footer>
+					{#if $currentStep === 1}
+						<Button on:click={goToNextStep}>Continue</Button>
+					{:else}
+						<Button variant="secondary" on:click={goToPreviousStep}>Go Back</Button>
+						<Button on:click={goToNextStep}>Continue</Button>
+					{/if}
+				</Dialog.Footer>
+			</Dialog.Content>
+		</Dialog.Root>
+	</div>
 </div>
+

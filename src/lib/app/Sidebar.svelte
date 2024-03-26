@@ -3,9 +3,9 @@
  	import { Button } from "$lib/components/ui/button/index.js";
 
 let menuItems = [
-	{ label: 'Dashboard', href: "/dashboard"},
-	{ label: 'Invoices',  href: "/invoices"},
-	{ label: 'Cashflow',  href: "/cashflow"},
+	{ label: 'Dashboard', href: "/app/dashboard"},
+	{ label: 'Invoices',  href: "/app/invoices"},
+	{ label: 'Cashflow',  href: "/app/cashflow"},
 	]
 </script>
 
