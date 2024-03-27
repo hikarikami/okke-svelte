@@ -155,13 +155,14 @@
 					</div>
 				</div>
 
-				<div class="flex flex-col justify-end gap-4 md:flex-row">
-					<a href="2"><Button size="default" variant="default" class="w-fit">Next Step</Button></a>
-				</div>
+				
+			</div>
+			<div class="flex flex-col justify-end gap-4 md:flex-row mt-6">
+				<a href="2"><Button size="default" variant="default" class="w-fit">Next Step</Button></a>
 			</div>
 		</form>
 	</div>
 </div>
-<div class="hidden items-center justify-center bg-slate-100 sm:flex md:w-6/12">
+<div class="hidden items-center justify-center bg-slate-100 sm:flex md:w-4/12">
 	<Image class="h-16 w-16" />
 </div>

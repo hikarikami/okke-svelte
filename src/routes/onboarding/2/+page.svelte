@@ -86,21 +86,21 @@
 				</div>
 			</fieldset>
 
-			<div class="form mt-8 grid gap-6"></div>
-			<div class="flex flex-col justify-end gap-4 md:flex-row">
+			
+			<div class="flex flex-col justify-end gap-4 md:flex-row mt-6">
 				<a href="1"><Button size="default" variant="secondary" class="w-fit">Previous</Button></a>
-				<a href="2"><Button size="default" variant="default" class="w-fit">Next Step</Button></a>
+				<a href="3"><Button size="default" variant="default" class="w-fit">Next Step</Button></a>
 			</div>
 		</form>
 	</div>
 </div>
-<div class="hidden items-center justify-center bg-slate-100 sm:flex md:w-6/12">
+<div class="hidden items-center justify-center bg-slate-100 sm:flex md:w-4/12">
 	<Image class="h-16 w-16" />
 </div>
 
 <style>
 	.layout-style {
-		@apply relative min-h-8 flex items-center  gap-6 overflow-hidden rounded-lg border p-4 text-lg text-slate-700 ring-1 ring-transparent hover:cursor-pointer hover:border-slate-300 has-[:checked]:bg-indigo-50/20 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-300;
+		@apply relative min-h-8 flex items-center  gap-6 overflow-hidden rounded-lg border p-4 text-slate-700 ring-1 ring-transparent hover:cursor-pointer hover:border-slate-300 has-[:checked]:bg-indigo-50/20 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-300;
 	}
 
 	.layout-style .preview {
