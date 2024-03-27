@@ -58,7 +58,7 @@
 						</div>
 						<div class="mt-4 grid w-full gap-1.5">
 							{#if checked}
-							<Textarea rows=6 placeholder="Enter your remittance advice" id="message" />
+							<Textarea rows={6} placeholder="Enter your remittance advice" id="message" />
 							{/if}
 						</div>
 					</div>
