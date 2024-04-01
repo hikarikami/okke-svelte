@@ -15,6 +15,8 @@
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 
+	
+
 	import logo from '$lib/images/okke-logo-dark.svg';
 
 	const industries = [

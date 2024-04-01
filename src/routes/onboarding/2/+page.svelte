@@ -98,16 +98,3 @@
 	<Image class="h-16 w-16" />
 </div>
 
-<style>
-	.layout-style {
-		@apply relative min-h-8 flex items-center  gap-6 overflow-hidden rounded-lg border p-4 text-slate-700 ring-1 ring-transparent hover:cursor-pointer hover:border-slate-300 has-[:checked]:bg-indigo-50/20 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-300;
-	}
-
-	.layout-style .preview {
-		@apply mt-2 h-8 w-full rounded-md bg-indigo-50  transition-transform duration-300;
-	}
-
-	.invoice-layout > div {
-		@apply hidden;
-	}
-</style>
