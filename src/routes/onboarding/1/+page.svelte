@@ -10,11 +10,12 @@
 	import { cn } from '$lib/utils.js';
 	import { tick } from 'svelte';
 	import { Variable } from 'lucide-svelte';
+	
 	import { CircleHelp } from 'lucide-svelte';
 	import { Image } from 'lucide-svelte';
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
-
+	import { BookOpen } from 'lucide-svelte';
 	
 
 	import logo from '$lib/images/okke-logo-dark.svg';
@@ -55,7 +56,9 @@
 	let open = false;
 	let value = '';
 	let checked = false;
-	let selected = { value: 'Sole Trader', label: 'Sole trader' };
+
+	let selected1 = { value: 'Sole Trader', label: 'Sole trader' };
+	let selected2 = { value: 'Australia', label: 'Australia' };
 
 	$: selectedValue = industries.find((f) => f.value === value)?.label ?? 'Search an industry...';
 
@@ -71,7 +74,7 @@
 </script>
 
 <div class="flex w-full items-start bg-white pt-24 md:w-8/12">
-	<div class="mx-auto mt-16 flex w-full flex-col justify-center md:mt-0 md:max-w-[30em]">
+	<div class="mx-auto mt-16 flex w-full flex-col justify-center md:mt-0 md:max-w-[34em]">
 		<!-- <a href="/"><img src={logo} alt="okke" width="64" class="w-20" /></a> -->
 		<h1 class="mt-8 text-2xl">Let's get started!</h1>
 			<p class="mt-2 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -79,7 +82,7 @@
 			<div class="form mt-8 grid gap-6">
 				<div class="grid w-full items-center gap-2">
 					<Label for="email">Business name</Label>
-					<Input type="email" id="email" placeholder="" />
+					<Input type="email" id="email" placeholder="Enter your business or organisation name" />
 				</div>
 
 				<div class="grid w-full gap-2">
@@ -91,7 +94,7 @@
 								variant="outline"
 								role="combobox"
 								aria-expanded={open}
-								class=" justify-between"
+								class=" justify-between text-muted-foreground/50  font-normal"
 							>
 								{selectedValue}
 							</Button>
@@ -123,7 +126,7 @@
 
 				<div class="grid w-full items-center gap-2">
 					<Label for="email">Type of business</Label>
-					<Select.Root bind:selected>
+					<Select.Root  bind:selected={selected1}>
 						<Select.Trigger class="">
 							<Select.Value placeholder="Select business type" />
 						</Select.Trigger>
@@ -136,8 +139,23 @@
 						</Select.Content>
 					</Select.Root>
 				</div>
+				<div class="grid w-full items-center gap-2">
+					<Label for="email">Where is your business located?</Label>
+					<Select.Root  bind:selected={selected2}>
+						<Select.Trigger class="">
+							<Select.Value placeholder="Select a country" />
+						</Select.Trigger>
+						<Select.Content>
+							<Select.Group>
+								<Select.Item value="Australia" label="Australia">Australia</Select.Item>
+								<Select.Item value="New Zealand" label="New Zealand">New Zealand</Select.Item>
+								<Select.Item value="United Kingdom" label="United Kingdom">United Kingdom</Select.Item>
+							</Select.Group>
+						</Select.Content>
+					</Select.Root>
+				</div>
 
-				<div class="rounded-lg border p-4">
+				<!-- <div class="rounded-lg border p-4">
 					<div>
 						<div class="flex flex-row items-center justify-between gap-x-4">
 							<div>
@@ -155,14 +173,30 @@
 							{/if}
 						
 					</div>
+				</div> -->
+
+				<div class="flex flex-row items-center justify-between gap-x-4">
+					<div>
+						<Label for="email"><p class="font-normal text-base">My business is registered for GST</p></Label>
+					
+					</div>
+					<Switch id="gst-registered" bind:checked/>
 				</div>
+				
+					{#if checked}
+					<div class="grid w-full items-center gap-2">
+						<Label for="email" class="flex">Australian Business Number <CircleHelp class="ml-2 w-4 h-4" /></Label>
+						<div><Input type="email" id="email" class="max-w-80" placeholder="Enter your ABN" /></div>
+					</div>
+					{/if}
 
 				
 			</div>
-			<div class="flex flex-col justify-end gap-4 md:flex-row mt-6">
-				<a href="2"><Button size="default" variant="default" class="w-fit">Next Step</Button></a>
+			<div class="flex flex-col justify-end gap-4 md:flex-row mt-12">
+				<Button size="lg" variant="default" class="w-full" href="2">Confirm Details</Button>
 			</div>
 		</form>
+		<div class="flex flex-row  gap-2 mt-24 rounded-lg p-4 bg-indigo-50 "><BookOpen class="w-4 text-indigo-500" /><p class='text-sm'>Don't stress, details can be changed later from your business settings.</p></div>
 	</div>
 </div>
 <div class="hidden items-center justify-center bg-slate-100 sm:flex md:w-4/12">

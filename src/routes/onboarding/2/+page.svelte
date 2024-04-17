@@ -16,12 +16,12 @@
 </script>
 
 <div class="flex w-full items-start bg-white pt-24 md:w-8/12">
-	<div class="mx-auto mt-16 flex w-full flex-col justify-center md:mt-0 md:max-w-[30em]">
+	<div class="mx-auto mt-16 flex w-full flex-col justify-center md:mt-0 md:max-w-[34em]">
 		<h1 class="mt-8 text-2xl">What are you interested in using?</h1>
 		<p class="mt-2 leading-relaxed">Select the options you're most keen to try out.</p>
 		<form>
 			<fieldset>
-				<div class="mt-6 grid grid-cols-1 gap-4">
+				<div class="mt-6 grid grid-cols-2 gap-4">
 					<label for="invoices" class="layout-style group">
 						Sending Invoices
 						<input
@@ -31,7 +31,6 @@
 							type="checkbox"
 							class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-sm border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
 						/>
-					
 					</label>
 					<label for="tracking-expenses" class="layout-style group">
 						Tracking Expenses
@@ -43,7 +42,6 @@
 							type="checkbox"
 							class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-sm border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
 						/>
-						
 					</label>
 					<label for="automating-records" class="layout-style group">
 						Automating Records
@@ -55,7 +53,6 @@
 							type="checkbox"
 							class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-sm border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
 						/>
-					
 					</label>
 
 					<label for="Reports-and-GST" class="layout-style group">
@@ -67,7 +64,6 @@
 							type="checkbox"
 							class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-sm border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
 						/>
-					
 					</label>
 
 					<label for="digital-payments" class="layout-style group">
@@ -80,16 +76,26 @@
 							type="checkbox"
 							class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-sm border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
 						/>
-					
 					</label>
 
+					<label for="reporting" class="layout-style group">
+						Business Reports
+
+						<input
+							name="reporting"
+							id="reporting"
+							value="reporting"
+							type="checkbox"
+							class="peer absolute right-4 box-content h-1.5 w-1.5 appearance-none rounded-sm border-[5px] border-white bg-white bg-clip-padding outline-none ring-1 ring-gray-950/10 checked:border-indigo-500 checked:ring-indigo-500"
+						/>
+					</label>
 				</div>
 			</fieldset>
 
+			<div class="mt-6 flex flex-col justify-end gap-4">
+				
+				<a href="../app/dashboard"><Button size="default" variant="default" class="w-full">Continue</Button></a>
 			
-			<div class="flex flex-col justify-end gap-4 md:flex-row mt-6">
-				<a href="1"><Button size="default" variant="secondary" class="w-fit">Previous</Button></a>
-				<a href="3"><Button size="default" variant="default" class="w-fit">Next Step</Button></a>
 			</div>
 		</form>
 	</div>
@@ -98,3 +104,8 @@
 	<Image class="h-16 w-16" />
 </div>
 
+<style>
+	.layout-style {
+		@apply relative min-h-40 items-center gap-6 overflow-hidden rounded-lg border p-4 text-lg text-slate-700 ring-1 ring-transparent hover:cursor-pointer hover:border-slate-300 has-[:checked]:bg-indigo-50/20 has-[:checked]:text-indigo-900 has-[:checked]:ring-indigo-300;
+	}
+</style>

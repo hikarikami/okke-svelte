@@ -16,7 +16,7 @@
 </script>
 
 <div class="flex w-full items-start bg-white pt-24 md:w-8/12">
-	<div class="mx-auto mt-16 flex w-full flex-col justify-center md:mt-0 md:max-w-[30em]">
+	<div class="mx-auto mt-16 flex w-full flex-col justify-center md:mt-0 md:max-w-[34em]">
 		<h1 class="mt-8 text-2xl">Add your first bank account</h1>
 		<p class="mt-2 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident tempora ullam modi.</p><p class="mt-4">Dolores quia tempore facilis, eius corrupti doloribus.  </p>
 		<form>
@@ -31,7 +31,7 @@
 			</div>
 			<div class="flex flex-col justify-center gap-4 md:flex-row mt-6">
 				
-				<a href="3"><Button size="default" variant="ghost">No thanks, I'll skip this for now</Button></a>
+				<Button size="lg" variant="ghost" class="w-full" href="../app">No thanks, I'll skip this for now</Button>
 			</div>
 		</form>
 	</div>
