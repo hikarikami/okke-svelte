@@ -1,8 +1,9 @@
+// src/routes/api/data.js
 import { supabase } from '$lib/supabaseClient';
 
 export async function get() {
     const { data, error } = await supabase
-        .from('your_table')
+        .from('transactions')
         .select('*');
 
     if (error) {
@@ -22,7 +23,7 @@ export async function post({ request }) {
     const body = await request.json();
 
     const { data, error } = await supabase
-        .from('your_table')
+        .from('transactions')
         .insert([body]);
 
     if (error) {
