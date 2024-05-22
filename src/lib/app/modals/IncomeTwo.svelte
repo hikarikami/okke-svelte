@@ -7,7 +7,7 @@
 </script>
 
 <Dialog.Header>
-	<Dialog.Title>Setting Up Your Invoices</Dialog.Title>
+	<Dialog.Title>Income 2</Dialog.Title>
 </Dialog.Header>
 <Dialog.Description>
 	

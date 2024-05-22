@@ -5,7 +5,8 @@
 let menuItems = [
 	{ label: 'Dashboard', href: "/app/dashboard"},
 	{ label: 'Invoices',  href: "/app/invoices"},
-	{ label: 'Cashflow',  href: "/app/cashflow"},
+	{ label: 'Income',  href: "/app/cashflow/income"},
+	{ label: 'Expense',  href: "/app/cashflow/expense"},
 	{ label: 'Transactions', href: "/app/transactions"}
 	]
 </script>

@@ -1,4 +1,9 @@
+
 <script lang="ts">
+	/**
+	Expense page 
+	**/
+
 	// Components
 	import PageHeader from '$lib/app/PageHeader.svelte';
 	import * as Dialog from '$lib/components/ui/dialog';
@@ -9,8 +14,8 @@
 
 	// Steps
 
-	import StepOne from '$lib/app/modals/IncomeOne.svelte';
-	import StepTwo from '$lib/app/modals/IncomeTwo.svelte';
+	import StepOne from '$lib/app/modals/ExpenseOne.svelte';
+	import StepTwo from '$lib/app/modals/ExpenseTwo.svelte';
 
 	import { Input } from '$lib/components/ui/input/index.js';
 	import { Label } from '$lib/components/ui/label/index.js';
@@ -51,19 +56,19 @@
 </script>
 
 <svelte:head>
-	<title>Income</title>
+	<title>Expenses</title>
 	<meta name="description" content="About this app" />
 </svelte:head>
 
 <div class="container mx-auto">
 	<PageHeader
-		title="Income"
-		buttons={[{ label: 'Create New Invoice', href: '#', variant: 'default', showIcon: true }]}
+		title="Expenses"
+		buttons={[{ label: 'Record a Receipt', href: '#', variant: 'default', showIcon: true }]}
 	/>
 	<div class="mt-4">
 		<Dialog.Root bind:open={dialogOpen}>
-			<Dialog.Trigger><Button>Create Entry</Button></Dialog.Trigger>
-			<Dialog.Content class="w-[90vw]">
+			<Dialog.Trigger><Button>Create Expense</Button></Dialog.Trigger>
+			<Dialog.Content>
 				{#if $currentStep === 1}
 					<StepOne {goToNextStep} {goToPreviousStep} />
 				{:else if $currentStep === 2}
